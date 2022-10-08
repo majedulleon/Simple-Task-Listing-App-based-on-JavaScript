@@ -40,7 +40,7 @@ function removeTask(e) {
             removeFromLS(elem);
         }
     }
-
+    e.preventDefault();
 }
 
 function removeAll(e) {
@@ -48,6 +48,7 @@ function removeAll(e) {
         taskList.removeChild(taskList.firstChild);
     }
     localStorage.clear();
+    e.preventDefault();
 }
 // TASK FILTER SECTION HERE
 
@@ -63,7 +64,7 @@ function taskFilter(e) {
             task.style.display = 'none';
         }
     });
-
+    e.preventDefault();
 }
 
 //Store In Local Storage
@@ -78,6 +79,8 @@ function storeTaskInLocalStorage(task) {
     }
     tasks.push(task);
     localStorage.setItem('tasks', JSON.stringify(tasks));
+
+    task.preventDefault();
 }
 
 function getTasks() {
@@ -117,4 +120,5 @@ function removeFromLS(taskItem) {
         }
     });
     localStorage.setItem('tasks', JSON.stringify(tasks));
+    taskItem.preventDefault();
 }
